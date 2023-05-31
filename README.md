@@ -11,19 +11,22 @@ springbootdemo
 
 #### 使用说明
 
-1.  graalvm native image
+1.  graalvm native image编译,并运行
 
 ```
 mvn spring-boot:process-aot
 
  mvn native:build    
 ```
+```
+.\target\springbootdemo.exe
+```
 2.  打包为jar文件,并运行jar包
 
 ```
 mvn package
-
-
+```
+```
 java -jar target\springbootdemo-0.0.1-SNAPSHOT.jar
 ```
 3.  调试运行
