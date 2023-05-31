@@ -7,14 +7,27 @@ springbootdemo
 软件架构说明
 
 
-#### 安装教程
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
 
 #### 使用说明
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+1.  graalvm native image
+
+```
+mvn spring-boot:process-aot
+
+ mvn native:build    
+```
+2.  打包为jar文件,并运行jar包
+
+```
+mvn package
+
+
+java -jar target\springbootdemo-0.0.1-SNAPSHOT.jar
+```
+3.  调试运行
+
+```
+mvn spring-boot:run
+```
