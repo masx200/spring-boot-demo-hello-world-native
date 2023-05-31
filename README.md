@@ -15,7 +15,7 @@ springbootdemo
 ```
 mvn spring-boot:process-aot
 
- mvn native:build
+ mvn -Pnative native:build
 ```
 
 ```
