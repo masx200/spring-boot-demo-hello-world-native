@@ -13,6 +13,7 @@ springbootdemo
 1. graalvm native image编译,并运行
 
 ```
+mvn compile
 mvn spring-boot:process-aot
 
  mvn -Pnative native:build
