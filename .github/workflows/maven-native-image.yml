@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name:  Maven native image
+name: Maven native image
 
 on:
   push:
@@ -20,27 +20,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - run: wget -O ~/graalvm-jdk-20_linux-x64_bin.tar.gz -v https://download.oracle.com/graalvm/20/latest/graalvm-jdk-20_linux-x64_bin.tar.gz
-    - run:  |
-        mkdir -v ~/graalvm-jdk-20_linux-x64_bin
-        tar -v -C ~/graalvm-jdk-20_linux-x64_bin -xzf ~/graalvm-jdk-20_linux-x64_bin.tar.gz
-    
+      - uses: actions/checkout@v3
+      - run: wget -O ~/graalvm-jdk-20_linux-x64_bin.tar.gz -v https://download.oracle.com/graalvm/20/latest/graalvm-jdk-20_linux-x64_bin.tar.gz
+      - run: |
+          mkdir -v ~/graalvm-jdk-20_linux-x64_bin
+          tar -v -C ~/graalvm-jdk-20_linux-x64_bin -xzf ~/graalvm-jdk-20_linux-x64_bin.tar.gz
 
-    - name: Set up JDK 17
-      uses: actions/setup-java@v3
-      with:
-        java-version: '17'
-        distribution: 'temurin'
-        cache: maven
-    - run:  export PATH=~/graalvm-jdk-20_linux-x64_bin:$PATH
-    - run:    export JAVA_HOME=~/graalvm-jdk-20_linux-x64_bin
-    - run: sudo apt-get install build-essential libz-dev zlib1g-dev    
-    - name: Build with Maven
-      run: |
-        mvn spring-boot:process-aot
 
-        mvn -Pnative native:build
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+      - run: export PATH=~/graalvm-jdk-20_linux-x64_bin/graalvm-jdk-20.0.2+9.1/bin:$PATH
+      - run: export JAVA_HOME=~/graalvm-jdk-20_linux-x64_bin/graalvm-jdk-20.0.2+9.1
+      - run: sudo apt-get install build-essential libz-dev zlib1g-dev
+      - name: Build with Maven
+        run: |
+          mvn spring-boot:process-aot
+          
+          mvn -Pnative native:build
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     #- name: Update dependency graph
