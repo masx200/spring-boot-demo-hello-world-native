@@ -39,9 +39,11 @@ jobs:
           sudo apt update
           sudo apt-get install build-essential libz-dev zlib1g-dev
       - run: |
+          ls -l ~/graalvm-jdk-20_linux-x64_bin/graalvm-jdk-20.0.2+9.1/bin
           java --version
-          gu --version
           native-image --version
+          gu --version
+          
       - name: Build with Maven
         run: |
           mvn package
