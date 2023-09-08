@@ -38,6 +38,7 @@ jobs:
       - run: sudo apt-get install build-essential libz-dev zlib1g-dev
       - name: Build with Maven
         run: |
+          mvn package
           mvn spring-boot:process-aot
           
           mvn -Pnative native:build
