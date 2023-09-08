@@ -22,7 +22,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - run: wget -O ~/graalvm-jdk-20_linux-x64_bin.tar.gz -v https://download.oracle.com/graalvm/20/latest/graalvm-jdk-20_linux-x64_bin.tar.gz
-    - run:  tar /C ~/graalvm-jdk-20_linux-x64_bin -xzf ~/graalvm-jdk-20_linux-x64_bin.tar.gz
+    - run:  tar -C ~/graalvm-jdk-20_linux-x64_bin -xzf ~/graalvm-jdk-20_linux-x64_bin.tar.gz
     
 
     - name: Set up JDK 17
