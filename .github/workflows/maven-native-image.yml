@@ -50,7 +50,7 @@ jobs:
         run: |
           export JAVA_HOME=~/graalvm-jdk-20_linux-x64_bin/graalvm-jdk-20.0.2+9.1
           export PATH=~/graalvm-jdk-20_linux-x64_bin/graalvm-jdk-20.0.2+9.1/bin:$PATH
-          mvn package
+          mvn compile
           mvn spring-boot:process-aot
           
           mvn -Pnative native:build
